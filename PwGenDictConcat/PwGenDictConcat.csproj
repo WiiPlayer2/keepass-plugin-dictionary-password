@@ -35,6 +35,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,10 +46,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DictConcatPwGen.cs" />
+    <Compile Include="GeneratorOptions.cs" />
+    <Compile Include="GeneratorOptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneratorOptionsDialog.Designer.cs">
+      <DependentUpon>GeneratorOptionsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="PwGenDictConcatExt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GeneratorOptionsDialog.resx">
+      <DependentUpon>GeneratorOptionsDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="words.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

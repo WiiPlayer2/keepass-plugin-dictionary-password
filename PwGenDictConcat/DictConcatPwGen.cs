@@ -23,6 +23,8 @@ namespace PwGenDictConcat
             get { return pwUuid; }
         }
 
+        public override bool SupportsOptions => true;
+
         public override ProtectedString Generate(PwProfile prf, CryptoRandomStream crsRandomSource)
         {
             var words = GetWords();
@@ -42,15 +44,27 @@ namespace PwGenDictConcat
 
         private string[] GetWords()
         {
-            var names = typeof(DictConcatPwGen).Assembly.GetManifestResourceNames();
-            var stream = typeof(DictConcatPwGen).Assembly.GetManifestResourceStream("PwGenDictConcat.words.txt");
-            var reader = new StreamReader(stream);
-            var list = new List<string>();
-            while(!reader.EndOfStream)
+            using (var stream = typeof(DictConcatPwGen).Assembly.GetManifestResourceStream("PwGenDictConcat.words.txt"))
+            using (var reader = new StreamReader(stream))
             {
-                list.Add(reader.ReadLine());
+                var list = new List<string>();
+                while (!reader.EndOfStream)
+                {
+                    list.Add(reader.ReadLine());
+                }
+                return list.ToArray();
             }
-            return list.ToArray();
+        }
+
+        public override string GetOptions(string strCurrentOptions)
+        {
+            var options = GeneratorOptions.FromString(strCurrentOptions);
+            var form = new GeneratorOptionsDialog() { Options = options };
+
+            if (form.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                return strCurrentOptions;
+
+            return options.ToString();
         }
     }
 }
