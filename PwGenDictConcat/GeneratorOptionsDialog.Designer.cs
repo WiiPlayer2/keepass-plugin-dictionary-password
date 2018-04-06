@@ -93,6 +93,7 @@
             this.okButton.TabIndex = 1;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -191,7 +192,6 @@
             this.Name = "GeneratorOptionsDialog";
             this.ShowIcon = false;
             this.Text = "Options";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GeneratorOptionsDialog_FormClosed);
             this.Load += new System.EventHandler(this.GeneratorOptionsDialog_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

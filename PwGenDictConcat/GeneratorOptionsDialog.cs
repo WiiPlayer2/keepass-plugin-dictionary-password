@@ -30,12 +30,15 @@ namespace PwGenDictConcat
             keepTogetherCheck.CheckState = Options.KeepDigitsTogether ? CheckState.Checked : CheckState.Unchecked;
         }
 
-        private void GeneratorOptionsDialog_FormClosed(object sender, FormClosedEventArgs e)
+        private void okButton_Click(object sender, EventArgs e)
         {
             Options.MinLength = (uint)minNumeric.Value;
             Options.MaxLength = (uint)maxNumeric.Value;
             Options.DigitCount = (uint)digitNumeric.Value;
             Options.KeepDigitsTogether = keepTogetherCheck.CheckState == CheckState.Checked;
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

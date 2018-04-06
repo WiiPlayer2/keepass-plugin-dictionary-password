@@ -23,7 +23,10 @@ namespace PwGenDictConcat
             get { return pwUuid; }
         }
 
-        public override bool SupportsOptions => true;
+        public override bool SupportsOptions
+        {
+            get { return true; }
+        }
 
         public override ProtectedString Generate(PwProfile prf, CryptoRandomStream crsRandomSource)
         {
