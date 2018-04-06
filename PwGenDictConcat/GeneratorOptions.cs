@@ -13,7 +13,7 @@ namespace PwGenDictConcat
         {
             MinLength = 12;
             MaxLength = 30;
-            DigitCount = 3;
+            DigitCount = 2;
             KeepDigitsTogether = true;
         }
 

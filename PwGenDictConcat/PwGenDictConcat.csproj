@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CryptoRandomStreamHelper.cs" />
     <Compile Include="DictConcatPwGen.cs" />
     <Compile Include="GeneratorOptions.cs" />
     <Compile Include="GeneratorOptionsDialog.cs">
